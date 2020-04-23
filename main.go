@@ -5,7 +5,6 @@ import (
 	"log"
 
 	cloudevents "github.com/cloudevents/sdk-go"
-	"github.com/knative/eventing-sources/pkg/kncloudevents"
 )
 
 func display(event cloudevents.Event) {
@@ -13,15 +12,17 @@ func display(event cloudevents.Event) {
 }
 
 func main() {
-	client, err := kncloudevents.NewDefaultClient()
+	client, err := cloudevents.NewDefaultClient()
 	if err != nil {
 		log.Fatalf("could not create client: %v\n", err)
 	}
 
 	ctx := context.Background()
 
+	log.Printf("server started on port %d", 8080)
+
 	err = client.StartReceiver(ctx, display)
 	if err != nil {
-		log.Fatalf("failed to start receiver, %v", err)
+		log.Fatalf("failed to start server, %v", err)
 	}
 }

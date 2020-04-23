@@ -1,2 +1,2 @@
-# Konnek Knative Consumer
-Consumes and logs events inside Knative.
+# Konnek Consumer
+Consumes and logs CloudEvents from Konnek.
