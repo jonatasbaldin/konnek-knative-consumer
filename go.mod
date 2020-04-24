@@ -1,4 +1,4 @@
-module github.com/konnek/konnek-consumer
+module github.com/konnek/consumer
 
 go 1.13
 

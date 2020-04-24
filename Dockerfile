@@ -9,7 +9,7 @@ RUN GCO_ENABLED=0 go install --ldflags '-extldflags "-static"'
 
 # TODO: fix scratch!
 FROM golang:1.13-alpine
-COPY --from=builder /go/bin/konnek-consumer /konnek-consumer
+COPY --from=builder /go/bin/consumer /consumer
 COPY --from=builder /etc/ssl/certs/ca-certificates.crt /etc/ssl/certs/
 
-ENTRYPOINT ["/konnek-consumer"]
+ENTRYPOINT ["/consumer"]
